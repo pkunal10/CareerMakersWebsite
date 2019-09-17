@@ -1,0 +1,280 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserWithSlider.master.cs" Inherits="User_UserWithSlider" %>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <!-- STYLES & JQUERY 
+================================================== -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/icons.css" />
+    <link href="css/MyCss.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/slider.css" />
+    <link rel="stylesheet" type="text/css" href="css/skingreen.css" />
+    <!-- change skin color -->
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <script src="js/jquery-1.9.0.min.js"></script>
+    <!-- the rest of the scripts at the bottom of the document -->
+</head>
+<body>
+    <!-- TOP LOGO & MENU
+================================================== -->
+    <form runat="server">
+        <div class="grid">
+            <div class="row space-bot">
+                <!--Logo-->
+                <div class="c4">
+                    <a href="Home.aspx">
+                        <img src="images/ConsultancyLogo.png" class="logo" alt="">
+                    </a>
+                </div>
+                <!--Menu-->
+
+                <div class="c8">
+                    <nav id="topNav">
+                        <ul id="responsivemenu">
+                            <li class=""><a href="Home.aspx"><i class="icon-home homeicon"></i><span class="showmobile">Home</span></a></li>
+                            <li><a href="#">Admission</a>
+                                <ul style="display: none;">
+                                    <asp:Repeater ID="AdmissionCategoryRptr" runat="server">
+                                        <ItemTemplate>
+                                            <li>
+                                                <asp:LinkButton ID="admissionCatLb" runat="server" CommandArgument='<%#Eval("id") %>' OnCommand="admissionCatLb_Command"><%#Eval("Category") %></asp:LinkButton>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </ul>
+                            </li>
+                            <li><a href="#">Job Offer</a>
+                                <ul style="display: none;">
+                                    <asp:Repeater ID="JobOfferCategoryRptr" runat="server">
+                                        <ItemTemplate>
+                                            <li>
+                                                <asp:LinkButton ID="jobOfferCatLb" runat="server" CommandArgument='<%#Eval("id") %>' OnCommand="jobOfferCatLb_Command"><%#Eval("Category") %></asp:LinkButton>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="Gallery.aspx">Gallery</a>
+                            </li>
+                            <li>
+                                <a href="AdmissionForm.aspx">Admission Form</a>
+                            </li>
+                            <%--<li><a href="#">Portfolio</a>
+                                <ul>
+                                    <li><a href="portfolio2.html">Two Columns</a></li>
+                                    <li><a href="portfolio3.html">Three Columns</a></li>
+                                    <li><a href="portfolio4.html">Four Columns</a></li>
+                                    <li><a href="portfolio5.html">Five Columns</a></li>
+                                    <li><a href="portfolio-masonry3.html">Three Masonry</a></li>
+                                    <li><a href="portfolio-masonry4.html">Four Masonry</a></li>
+                                    <li><a href="portfolio-masonry5.html">Five Masonry</a></li>
+                                    <li><a href="singleproject.html">Project Details</a></li>
+                                </ul>
+                            </li>--%>
+                            <li class="last"><a href="ContactUs.aspx">Contact</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="undermenuarea">
+            <div class="boxedshadow">
+            </div>
+            <!-- SLIDER AREA
+	================================================== -->
+            <div id="da-slider" class="da-slider">
+                <!--Slide 1-->
+                <div class="da-slide">
+                    <h2>Carrier Makers Consultancy </h2>
+                    <p>
+                        <%--We provide admission in best colleges of their field.--%>
+		
+                    </p>                   
+                    <div class="da-img">
+                        <img src="images/Home/consultancy.png" alt="">
+                    </div>
+                </div>
+                <!--Slide 2-->
+                <div class="da-slide">
+                    <h2>Jobs</h2>
+                    <p>
+                        We provide job as you want.
+		
+                    </p>                    
+                    <div class="da-img" style="margin-top:35px;">
+                        <img src="images/Home/job-offer.jpg" alt="">
+                    </div>
+                </div>
+                <!--Slide 3-->
+                <div class="da-slide">
+                   <%-- <h2>Easy to modify </h2>
+                    <p>
+                        We design, create and manage fully integrated social media platforms, online PR strategy and campaigns for our clients, ability to analyse, monitor and optimise brand presence.
+		
+                    </p> --%> 
+                    <h2>Admission </h2>
+                    <p>
+                        We provide admission in best colleges of their field.
+		
+                    </p>                    
+                    <div class="da-img" style="margin-top:35px;">
+                        <img src="images/Home/admission.jpg" alt="">
+                    </div>
+                </div>
+                <nav class="da-arrows">
+                    <span class="da-arrows-prev"></span>
+                    <span class="da-arrows-next"></span>
+                </nav>
+            </div>
+        </div>
+        <!-- UNDER SLIDER - BLACK AREA
+================================================== -->
+        
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+        <!-- FOOTER
+================================================== -->
+        <div id="wrapfooter">
+            <div class="grid">
+                <div class="row" id="footer">
+                    <!-- to top button  -->
+                    <p class="back-top floatright">
+                        <a href="#top"><span></span></a>
+                    </p>
+                    <!-- 1st column -->
+                    <div class="c3">
+                        <img src="images/ConsultancyLogo.png" alt="">
+                    </div>
+                    <!-- 2nd column -->
+                    <div class="c3">
+                        <h2 class="title"><i class="icon-twitter"></i>Follow us</h2>
+                        <hr class="footerstress">
+                        <ul class="" style="margin-top: 15px;">
+                            <li class="">
+                                <a href="https://www.instagram.com/carriermakers_jk/" target="_blank" title="Follow Us on Instagram"><img src="images/instagram.png" /></a>
+                            </li>
+                            <li class="">
+                                <a href="https://www.facebook.com/Carrier-Makers-Consultancy-1866385860339067/?modal=admin_todo_tour" class="has-tip" target="_blank" title="Join us on Facebook"><img src="images/facebook.png" /></a>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                    <!-- 3rd column -->
+                    <div class="c3">
+                        <h2 class="title"><i class="icon-envelope-alt"></i>Contact</h2>
+                        <hr class="footerstress">
+                        <dl>
+                            <dt>Kupwara kashmir,Pin:- 193222.</dt>
+                            <dd><span>Mobile:</span>+91 7006305281</dd>
+                            <dd>E-mail:   info@carriermakers.com</dd>
+                        </dl>
+                        
+                    </div>
+                    <!-- 4th column -->
+                    <div class="c3">
+                        <h2 class="title"><i class="icon-link"></i>Links</h2>
+                        <hr class="footerstress">
+                        <ul>
+                            <li><a href="ContactUs.aspx">Contact</a></li>
+                            <li><a href="Gallery.aspx">Gallery</a></li>
+                            <li><a href="AdmissionForm.aspx">Admission Form</a></li>                            
+                            <li><a href="Home.aspx">Home</a></li>
+                            <li><a href="../Admin/Login.aspx"><i class="icon-user-md"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- end 4th column -->
+                </div>
+            </div>
+        </div>
+        <!-- copyright area -->
+        <div class="copyright">
+            <div class="grid">
+                <div class="row">
+                    <div class="c6">
+                       &copy; 2017. All Rights Reserved.
+		
+                    </div>
+                    <div class="c6">
+                        <span class="right">Developed By:- <a href="http://www.kunalsofttech.com" style="color:green;text-decoration:underline;" target="_blank"><b>Kunal Soft-Tech</b></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- END CONTENT AREA -->
+    <!-- JAVASCRIPTS
+================================================== -->
+    <!-- all -->
+    <script src="js/modernizr-latest.js"></script>
+
+    <!-- menu & scroll to top -->
+    <script src="js/common.js"></script>
+
+    <!-- slider -->
+    <script src="js/jquery.cslider.js"></script>
+
+    <!-- cycle -->
+    <script src="js/jquery.cycle.js"></script>
+
+    <!-- carousel items -->
+    <script src="js/jquery.carouFredSel-6.0.3-packed.js"></script>
+
+    <!-- twitter -->
+    <script src="js/jquery.tweet.js"></script>
+
+    <!-- Call Showcase - change 4 from min:4 and max:4 to the number of items you want visible -->
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#recent-projects').carouFredSel({
+                responsive: true,
+                width: '100%',
+                auto: true,
+                circular: true,
+                infinite: false,
+                prev: {
+                    button: "#car_prev",
+                    key: "left",
+                },
+                next: {
+                    button: "#car_next",
+                    key: "right",
+                },
+                swipe: {
+                    onMouse: true,
+                    onTouch: true
+                },
+                scroll: 2000,
+                items: {
+                    visible: {
+                        min: 4,
+                        max: 4
+                    }
+                }
+            });
+        });
+</script>
+
+    <!-- Call opacity on hover images from carousel-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("img.imgOpa").hover(function () {
+                $(this).stop().animate({ opacity: "0.6" }, 'slow');
+            },
+            function () {
+                $(this).stop().animate({ opacity: "1.0" }, 'slow');
+            });
+        });
+</script>
+</body>
+</html>
